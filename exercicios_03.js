@@ -123,25 +123,99 @@
 
 
 // Mostre no console cada parágrado do site
-const paragrafos = document.querySelectorAll('p')
+// const paragrafos = document.querySelectorAll('p')
 
-paragrafos.forEach((item) => console.log(item));
-
-
-// Mostre o texto dos parágrafos no console
-paragrafos.forEach((item) => console.log(item.innerText));
+// paragrafos.forEach((item) => console.log(item));
 
 
-// Como corrigir os erros abaixo:
-const imgs = document.querySelectorAll('img');
+// // Mostre o texto dos parágrafos no console
+// paragrafos.forEach((item) => console.log(item.innerText));
 
-imgs.forEach((item, index) => {
-  console.log(item, index);
-});
 
-let i = 0;
-imgs.forEach(() => {
-  console.log(i++);
-});
+// // Como corrigir os erros abaixo:
+// const imgs = document.querySelectorAll('img');
 
-imgs.forEach(() => i++);
+// imgs.forEach((item, index) => {
+//   console.log(item, index);
+// });
+
+// let i = 0;
+// imgs.forEach(() => {
+//   console.log(i++);
+// });
+
+// imgs.forEach(() => i++);
+
+// const listaAnimais = document.querySelector('.animais-lista')
+
+// const height = listaAnimais.scrollHeight;
+// const animaisTop = listaAnimais.offsetTop;;
+// console.log(height);
+// console.log(animaisTop);
+
+// const raposah2 = document.querySelector('h2')
+// const leftRaposa = raposah2.offsetLeft
+
+// console.log(leftRaposa);
+
+// const rect = raposah2.getBoundingClientRect()
+// console.log(rect);
+
+// if(rect.top < 0) {
+//     console.log('passou do elemento');   
+// }
+
+
+// console.log(
+//     window.innerWidth,
+//     window.outerWidth,
+//     window.innerHeight,
+//     window.pageYOffset,
+// );
+
+// Verifique a distância da primeira imagem
+// em relação ao topo da página
+
+const img = document.querySelector('img')
+const rect = img.getBoundingClientRect()
+console.log(rect.top);
+
+// Retorne a soma da largura de todas as imagens
+let somaLargura = 0;
+const imgs = document.querySelectorAll('img')
+
+imgs.forEach((item) => {
+    somaLargura += item.offsetWidth
+})
+
+console.log(somaLargura);
+
+
+
+
+// Verifique se os links da página possuem
+// o mínimo recomendado para telas utilizadas
+// com o dedo. (48px/48px de acordo com o google)
+
+const links = document.querySelectorAll('a')
+
+links.forEach((item) => {
+    if(window.innerWidth < 720){
+        if(item.offsetWidth >= 48 && item.offsetHeight >= 48) {
+            console.log(`${item} tem o tamanho recomendado.`);
+        } else {
+            console.log(`${item} não tem o tamanho recomendado`);  
+        }
+    }
+})
+
+
+
+// Se o browser for menor que 720px,
+// adicione a classe menu-mobile ao menu
+
+const menu = document.querySelector('.menu')
+if(window.innerWidth < 720){
+    menu.classList.add('menu-mobile')
+}
+
