@@ -1,0 +1,15 @@
+fetch('./dados.json')
+.then(response => response.text())
+.then(jsonText => {
+    const jsonFinal = JSON.parse(jsonText)
+    console.log(jsonFinal);
+})
+
+const configuracoes = {
+    player: "Google",
+    tempo: 25.2,
+    aula: "2.1 JavaScript",
+}
+
+localStorage.config = JSON.stringify(configuracoes)
+console.log(JSON.parse(localStorage.config));
